@@ -21,7 +21,7 @@ sudo sed -i 's+download.docker.com+mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc
 sudo yum makecache fast
 
 
-## 安装过docker 忽略--------------------------↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-------------------------
+## 安装过docker 忽略--------------------------↓↓↓↓↓↓↓↓↓↓↓↓↓↓-------------------------
 sudo yum install docker-ce
 ##启动并加入开机启动
 
@@ -52,7 +52,7 @@ sudo service docker restart
 
 sudo yum remove docker docker-common docker-selinux docker-engine
 
-## 安装过docker 忽略---------------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑------------------------------
+## 安装过docker 忽略--------------------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------------------
 
 sudo docker pull  nevinee/jd:v4
 
