@@ -37,7 +37,7 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 "registry-mirrors": ["https://mirror.ccs.tencentyun.com"]
 }
 EOF
-#阿里云服务器 用网易的加速器
+# 阿里云服务器 用网易的加速器
 
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
@@ -45,10 +45,10 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 "registry-mirrors": ["http://hub-mirror.c.163.com"]
 }
 EOF
-#重启docker
+# 重启docker
 
 sudo service docker restart
-#卸载Docker
+# 卸载Docker
 
 sudo yum remove docker docker-common docker-selinux docker-engine
 
@@ -57,8 +57,8 @@ sudo yum remove docker docker-common docker-selinux docker-engine
 sudo docker pull  nevinee/jd:v4
 
 
-##Docker 部署京东脚本
-#e大v4部署
+## Docker 部署京东脚本
+# e大v4部署
 
 
 docker run -dit \
@@ -75,8 +75,8 @@ docker run -dit \
 --restart always \
 nevinee/jd:v4
 
-##多容器配置 - 安装过shuye等占用jd容器名或者调整目录使用
-#要想换库直接改最后一行
+## 多容器配置 - 安装过shuye等占用jd容器名或者调整目录使用
+# 要想换库直接改最后一行
 
 docker run -dit \
 -v /你想保存的目录/jd1/config:/jd/config `# 配置保存目录，冒号左边请修改为你想存放的路径`\
@@ -91,12 +91,15 @@ docker run -dit \
 --hostname jd1 \
 --restart always \
 nevinee/jd:v4
+
+
 ##自动更新Docker容器（也就是更新京东文件）
 
 
 #v4更新命令
 
 docker exec -it jd1 bash jup
+
 ##安装v4面板
 #开启DIY每次重启会重启面板
 #先进入容器
@@ -104,16 +107,21 @@ docker exec -it jd1 bash jup
 docker exec -it jd1 bash
 
 wget -q https://ghproxy.com/https://raw.githubusercontent.com/jiulan/jd_v4/main/v4mb.sh -O v4mb.sh && chmod +x v4mb.sh && ./v4mb.sh
+
 #重启手动运行面板
 #先进入容器
 
 
 cd panel
+
 npm i
+
 pm2 start server.js
 
 
 #页面访问
 -p 宿主机端口:容器内端口
+
 -p A:A 内外同端口
+
 -p B:A 异端口
